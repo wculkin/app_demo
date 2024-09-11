@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./CreateUser.css";
 import {useFirebase} from "../../hooks/firebase/useFireBase";
+import {useNavigate} from "react-router-dom";
+import {SIGN_IN} from "../../constants/routes"
 
 
 export type CreateUserProps = {
@@ -12,6 +14,8 @@ const CreateUser: React.FC<CreateUserProps> = ({formTitle}) => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const firebase = useFirebase();
+  const navigate = useNavigate();
+
   return (
     <div className="create-user-container">
       <div className="create-user-form">
@@ -51,7 +55,7 @@ const CreateUser: React.FC<CreateUserProps> = ({formTitle}) => {
           Create Account
         </button>
         <div className="additional-links">
-          <button type="button" className="link-button" onClick={() => console.log("go to sign In ")}>
+          <button type="button" className="link-button" onClick={() => navigate(SIGN_IN)}>
             Sign In
           </button>
         </div>
