@@ -1,0 +1,137 @@
+.sign-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.sign-in-form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.sign-in-form:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group input {
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #2575fc;
+}
+
+.sign-in-button {
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem;
+  background-color: #2575fc;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.sign-in-button:hover {
+  background-color: #1a5bb8;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #2575fc;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.link-button:hover {
+  color: #1a5bb8;
+}
+
+.additional-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@media (max-width: 768px) {
+  .sign-in-form {
+    padding: 1.5rem;
+  }
+
+  .sign-in-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-group input {
+    max-width: 280px;
+    padding: 0.9rem;
+  }
+
+  .sign-in-button {
+    max-width: 280px;
+  }
+
+  .link-button {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sign-in-form {
+    padding: 1.2rem;
+  }
+
+  .sign-in-form h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-group input {
+    max-width: 250px;
+    padding: 0.8rem;
+  }
+
+  .sign-in-button {
+    max-width: 250px;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .link-button {
+    font-size: 0.8rem;
+  }
+}
