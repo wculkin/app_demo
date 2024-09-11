@@ -1,4 +1,6 @@
 import { initializeApp, FirebaseApp } from 'firebase/app';
+import { getAuth, Auth, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword } from 'firebase/auth';
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -16,9 +18,22 @@ const firebaseConfig = {
 };
 class Firebase {
    app: FirebaseApp;
+   auth: Auth;
 
   constructor() {
     this.app = initializeApp(firebaseConfig);
+    this.auth = getAuth(this.app);
+  }
+  doCreateUserWithEmailAndPassword = async (email: string, password: string) => {
+    return createUserWithEmailAndPassword(this.auth, email, password);
+  }
+
+  doSignInWithEmailAndPassword = (email: string, password: string) => {
+    return signInWithEmailAndPassword(this.auth, email, password);
+  }
+
+  doSignOut = () => {
+    return signOut(this.auth);
   }
 }
 
