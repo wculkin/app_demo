@@ -1,14 +1,19 @@
 import React, {useState} from 'react';
 import './SignIn.css';
 import {useAuth} from "../../hooks/auth/useAuth";
+import {useNavigate} from "react-router-dom";
+import {ADMIN} from "../../constants/routes";
+
 
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const auth = useAuth()
+  const navigate = useNavigate();
   const handleSignIn = async() => {
     try{
       await auth.signIn(email,password)
+      navigate(ADMIN)
     }catch(e) {
       console.log("error logging in ", e)
     }
