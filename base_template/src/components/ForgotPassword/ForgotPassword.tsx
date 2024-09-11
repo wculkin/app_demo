@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import './ForgotPassword.css';  // Make sure this line imports your CSS file
+import './ForgotPassword.css';
+import {useNavigate} from "react-router-dom";  // Make sure this line imports your CSS file
+import * as ROUTES from '../../constants/routes';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
+  const navigate = useNavigate();
+
   return (
     <div className="forgot-password-container">
       <div className="forgot-password-form" >
@@ -18,14 +22,14 @@ const ForgotPassword = () => {
           />
         </div>
 
-        <button className="reset-password-button" onClick={() => console.log("reset password")}>
-          Reset Password, not planned for demo
+        <button className="reset-password-button" onClick={() => alert("Not implemented as a part of demo")}>
+          Reset Password
         </button>
 
-        <button className="link-button" type="button" onClick={() => console.log("back to ")}>
+        <button className="link-button" type="button" onClick={() => navigate(ROUTES.SIGN_IN)}>
           Back to Sign In
         </button>
-        <button className="link-button" type="button" onClick={() => console.log("create ")}>
+        <button className="link-button" type="button" onClick={() => navigate(ROUTES.CREATE_USER)}>
           Create an Account</button>
       </div>
     </div>
