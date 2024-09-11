@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom';
 import SignIn from "./components/SignIn";
 import ForgotPassword from "./components/ForgotPassword";
-import CreateUser from "./components/CreateUser";
 import * as ROUTES from './constants/routes';
 import Admin from "./components/Admin";
 import CreateUserPage from "./pages/CreateUserPage";
