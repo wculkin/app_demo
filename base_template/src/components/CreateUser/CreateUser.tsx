@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import "./CreateUser.css"; // Import the custom CSS file
+import "./CreateUser.css";
 
-const CreateUser: React.FC = () => {
+
+export type CreateUserProps = {
+  formTitle: string
+
+};
+const CreateUser: React.FC<CreateUserProps> = ({formTitle}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -9,7 +14,7 @@ const CreateUser: React.FC = () => {
   return (
     <div className="create-user-container">
       <div className="create-user-form">
-        <h2>Create Account</h2>
+        <h2>{formTitle}</h2>
 
         <div className="form-group">
           <input
