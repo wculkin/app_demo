@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './SignIn.css';
 import {useAuth} from "../../hooks/auth/useAuth";
 import {useNavigate} from "react-router-dom";
-import {ADMIN} from "../../constants/routes";
+import * as ROUTES from '../../constants/routes';
 
 
 const SignIn: React.FC = () => {
@@ -13,7 +13,7 @@ const SignIn: React.FC = () => {
   const handleSignIn = async() => {
     try{
       await auth.signIn(email,password)
-      navigate(ADMIN)
+      navigate(ROUTES.ADMIN)
     }catch(e) {
       console.log("error logging in ", e)
     }
@@ -48,10 +48,10 @@ const SignIn: React.FC = () => {
           Sign In
         </button>
         <div className="additional-links">
-          <button type="button" className="link-button" onClick={() => console.log("create account")}>
+          <button type="button" className="link-button" onClick={() => navigate(ROUTES.CREATE_USER)}>
             Create Account
           </button>
-          <button type="button" className="link-button" onClick={() => console.log("forgot password")}>
+          <button type="button" className="link-button" onClick={() => navigate(ROUTES.FORGOT_PASSWORD)}>
             Forgot Password?
           </button>
         </div>
