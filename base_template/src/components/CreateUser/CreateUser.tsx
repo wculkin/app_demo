@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./CreateUser.css";
+import {useFirebase} from "../../hooks/firebase/useFireBase";
 
 
 export type CreateUserProps = {
@@ -10,7 +11,7 @@ const CreateUser: React.FC<CreateUserProps> = ({formTitle}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-
+  const firebase = useFirebase();
   return (
     <div className="create-user-container">
       <div className="create-user-form">
@@ -46,11 +47,11 @@ const CreateUser: React.FC<CreateUserProps> = ({formTitle}) => {
           />
         </div>
 
-        <button type="submit" className="create-user-button" onClick={() => console.log("create account")}>
+        <button type="submit" className="create-user-button" onClick={() => firebase.doCreateUserWithEmailAndPassword(email,password)}>
           Create Account
         </button>
         <div className="additional-links">
-          <button type="button" className="link-button" onClick={() => console.log("sign In account")}>
+          <button type="button" className="link-button" onClick={() => console.log("go to sign In ")}>
             Sign In
           </button>
         </div>

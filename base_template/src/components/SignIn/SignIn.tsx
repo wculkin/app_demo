@@ -1,9 +1,19 @@
 import React, {useState} from 'react';
 import './SignIn.css';
+import {useAuth} from "../../hooks/auth/useAuth";
 
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const auth = useAuth()
+  const handleSignIn = async() => {
+    try{
+      await auth.signIn(email,password)
+    }catch(e) {
+      console.log("error logging in ", e)
+    }
+  }
+
   return (
     <div className="sign-in-container">
       <div className="sign-in-form">
@@ -29,7 +39,7 @@ const SignIn: React.FC = () => {
               required
           />
         </div>
-        <button type="submit" className="sign-in-button" onClick={() => console.log("signIn in")}>
+        <button type="submit" className="sign-in-button" onClick={handleSignIn}>
           Sign In
         </button>
         <div className="additional-links">
