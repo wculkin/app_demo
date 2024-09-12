@@ -1,22 +1,23 @@
 import React, { createContext, useReducer, useContext, ReactNode, Dispatch } from 'react';
-import { User } from 'firebase/auth';
 
 type State = {
-  user: User | null;
+  user: any | null;
+  isLegacy: boolean | null,
 };
 
-type Action = { type: 'SET_USER'; payload: User; } | { type: 'CLEAR_USER' };
+type Action = { type: 'SET_USER'; payload: any; isLegacy: boolean} | { type: 'CLEAR_USER' };
 
 const initialState: State = {
   user: null,
+  isLegacy: null,
 };
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'SET_USER':
-      return { ...state, user: action.payload };
+      return { ...state, user: action.payload, isLegacy: action.isLegacy };
     case 'CLEAR_USER':
-      return { ...state, user: null };
+      return { ...state, user: null, isLegacy: null };
     default:
       return state;
   }

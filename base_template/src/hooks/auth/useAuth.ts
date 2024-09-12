@@ -9,18 +9,6 @@ export const useAuth = () => {
   const dispatch = useGlobalDispatch();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if(!firebase){return}
-    const unsubscribe = firebase.auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        console.log('User logged in:', user); // Debug log
-        dispatch({ type: 'SET_USER', payload: user});
-      }
-      setLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, [firebase, dispatch]);
 
   const signIn = async (email: string, password: string) => {
     let signIn = false;
@@ -40,6 +28,7 @@ export const useAuth = () => {
   const tryNewSignIn = async (email: string, password: string) => {
     const response = await signInUser(email,password)
     if (response == "signedIn"){
+      dispatch({ type: 'SET_USER', payload: email+password, isLegacy:false });
       return true
     }
     return false
@@ -49,7 +38,7 @@ export const useAuth = () => {
     if(!firebase){return}
     try {
       const userCredential = await firebase.doSignInWithEmailAndPassword(email, password);
-      dispatch({ type: 'SET_USER', payload: userCredential.user });
+      dispatch({ type: 'SET_USER', payload: userCredential.user, isLegacy:true });
       return true
     } catch (error) {
       console.error('Error signing in:', error);
