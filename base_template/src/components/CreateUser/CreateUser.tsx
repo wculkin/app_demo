@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./CreateUser.css";
-import {useFirebase} from "../../hooks/firebase/useFireBase";
 import {useNavigate} from "react-router-dom";
 import {SIGN_IN} from "../../constants/routes"
 
@@ -14,7 +13,6 @@ const CreateUser: React.FC<CreateUserProps> = ({formTitle, onCreateUser}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const firebase = useFirebase();
   const navigate = useNavigate();
 
   return (
@@ -52,7 +50,7 @@ const CreateUser: React.FC<CreateUserProps> = ({formTitle, onCreateUser}) => {
           />
         </div>
 
-        <button type="submit" className="create-user-button" onClick={() => onCreateUser(email,password,name)}>
+        <button type="submit" className="create-user-button" onClick={() => onCreateUser(email,password,"name")}>
           Create Account
         </button>
         <div className="additional-links">
