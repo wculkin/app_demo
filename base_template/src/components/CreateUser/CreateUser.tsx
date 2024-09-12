@@ -6,10 +6,11 @@ import {SIGN_IN} from "../../constants/routes"
 
 
 export type CreateUserProps = {
-  formTitle: string
+  formTitle: string,
+  onCreateUser: (email: string, password: string, name:string) => void;
 
 };
-const CreateUser: React.FC<CreateUserProps> = ({formTitle}) => {
+const CreateUser: React.FC<CreateUserProps> = ({formTitle, onCreateUser}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -51,7 +52,7 @@ const CreateUser: React.FC<CreateUserProps> = ({formTitle}) => {
           />
         </div>
 
-        <button type="submit" className="create-user-button" onClick={() => firebase.doCreateUserWithEmailAndPassword(email,password)}>
+        <button type="submit" className="create-user-button" onClick={() => onCreateUser(email,password,name)}>
           Create Account
         </button>
         <div className="additional-links">
