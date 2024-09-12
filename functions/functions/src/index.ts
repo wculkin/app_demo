@@ -20,24 +20,28 @@ const firebase = new Firebase();
 
 export const helloWorld = onRequest({cors: true}, async (request, response) => {
   logger.info("Hello logs!", {structuredData: true});
-  let responseData = ""
+  let responseData:any = {};
   try {
     if (request.body.eventType == "createUser") {
       await createUser(request.body);
-      responseData = "createdUser"
+      responseData = {
+        status: "createdUser",
+      };
     } else if (request.body.eventType == "signIn") {
       const result = await signIn(request.body);
-      if (result){
-        responseData = "signedIn"
+      if (result) {
+        responseData = {
+          status: "signedIn",
+          userData: result,
+        };
       }
-
     } else {
       throw Error("unknown eventType");
     }
   } catch (error) {
     console.log(error);
   }
-  response.send(responseData);
+  response.json(responseData);
 });
 
 async function createUser(params: { email: string, password: string, name: string }) {
@@ -63,8 +67,8 @@ async function createUser(params: { email: string, password: string, name: strin
 async function signIn(params: { email: string, password: string }) {
   const {email, password} = params;
   const user = await firebase.getFireStoreDocument("users", email+password);
-  if (!user){
-    return null
+  if (!user) {
+    return null;
   }
   return user;
 }

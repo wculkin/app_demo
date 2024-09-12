@@ -27,8 +27,8 @@ export const useAuth = () => {
 
   const tryNewSignIn = async (email: string, password: string) => {
     const response = await signInUser(email,password)
-    if (response == "signedIn"){
-      dispatch({ type: 'SET_USER', payload: email+password, isLegacy:false });
+    if (response.status == "signedIn"){
+      dispatch({ type: 'SET_USER', payload: response.userData, isLegacy:false });
       return true
     }
     return false

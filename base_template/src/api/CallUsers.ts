@@ -18,8 +18,8 @@ try {
         body: JSON.stringify(data),
     });
 
-    const result = await response.text();
-    if(result == "createdUser"){
+    const result = await response.json();
+    if(result.status == "createdUser"){
         alert("account created successfully. please sign in ")
     }
     return result;
@@ -44,8 +44,8 @@ try {
         body: JSON.stringify(data),
     });
 
-    const result = await response.text();
-    console.log('Response from Cloud Function:', result);
+    const result = await response.json();
+    console.log('Response from Cloud Function:', response);
     return result;
   } catch (error) {
     console.error('Error:', error);
