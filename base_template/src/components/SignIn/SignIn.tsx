@@ -4,7 +4,6 @@ import {useAuth} from "../../hooks/auth/useAuth";
 import {useNavigate} from "react-router-dom";
 import * as ROUTES from '../../constants/routes';
 
-
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,8 +11,11 @@ const SignIn: React.FC = () => {
   const navigate = useNavigate();
   const handleSignIn = async() => {
     try{
-      await auth.signIn(email,password)
-      navigate(ROUTES.ADMIN)
+      const repsonse = await auth.signIn(email,password)
+      if (repsonse){
+        navigate(ROUTES.ADMIN)
+      }
+
     }catch(e) {
       console.log("error logging in ", e)
     }
