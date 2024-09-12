@@ -11,8 +11,10 @@ import CreateUserPage from "./pages/CreateUserPage";
 
 function App() {
   return (
+    <>
+    <h1>Welcome To base_template</h1>
     <Router>
-        <Routes>
+    <Routes>
             <Route  path={ROUTES.LANDING} element={<SignIn/>} />
             <Route  path={ROUTES.CREATE_USER} element={<CreateUserPage/>} />
             <Route  path={ROUTES.SIGN_IN} element={<SignIn/>} />
@@ -20,6 +22,7 @@ function App() {
             <Route  path={ROUTES.ADMIN} element={<Admin/>} />
         </Routes>
     </Router>
+    </>
   );
 }
 
