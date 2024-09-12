@@ -25,7 +25,12 @@ class Firebase {
     this.auth = getAuth(this.app);
   }
   doCreateUserWithEmailAndPassword = async (email: string, password: string) => {
-    return createUserWithEmailAndPassword(this.auth, email, password);
+    try{
+      await createUserWithEmailAndPassword(this.auth, email, password);
+      return true
+    }catch{
+      return false
+    }
   }
 
   doSignInWithEmailAndPassword = (email: string, password: string) => {
