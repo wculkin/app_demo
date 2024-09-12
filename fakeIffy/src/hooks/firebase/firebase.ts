@@ -8,13 +8,13 @@ import { getAuth, Auth, signInWithEmailAndPassword, signOut, createUserWithEmail
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyA4HiNRVFrwYFqe_8uMFyTgqjmeSTekm1Q",
-  authDomain: "baseapp-9f0a2.firebaseapp.com",
-  projectId: "baseapp-9f0a2",
-  storageBucket: "baseapp-9f0a2.appspot.com",
-  messagingSenderId: "236732555468",
-  appId: "1:236732555468:web:02bcb42c9aa49be50fe269",
-  measurementId: "G-TXMB1BRMTS"
+  apiKey: "AIzaSyBPYWmOfFmar-aPur8gg5NjIH8r96gsq6E",
+  authDomain: "fakeiffy.firebaseapp.com",
+  projectId: "fakeiffy",
+  storageBucket: "fakeiffy.appspot.com",
+  messagingSenderId: "83931864602",
+  appId: "1:83931864602:web:11c01f167a46c8484cfba3",
+  measurementId: "G-XQ4JVH9PMM"
 };
 class Firebase {
    app: FirebaseApp;
