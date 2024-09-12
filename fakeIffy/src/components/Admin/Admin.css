@@ -1,0 +1,35 @@
+/* Admin.css */
+
+.notLoggedIn {
+  background-color: #f8d7da; /* Light red background */
+  color: #721c24;            /* Dark red text */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.legacyUser {
+  background-color: #fff3cd; /* Light yellow background */
+  color: #856404;            /* Dark yellow text */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.regularUser {
+  background-color: #d1ecf1; /* Light blue background */
+  color: #0c5460;            /* Dark blue text */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+
+input[type="password"] {
+  display: block;
+  margin-top: 5px;
+  padding: 8px;
+  width: 100%;
+  max-width: 300px;
+}
